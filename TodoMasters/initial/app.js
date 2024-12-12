@@ -1,22 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const todoInput = document.getElementById('todo-input');
-    const addBtn = document.getElementById('add-btn');
-    const todoList = document.getElementById('todo-list');
+/**
+ * Design Patterns used:
+ * 
+ */
 
-    addBtn.addEventListener('click', () => {
-        const todoText = todoInput.value.trim();
-        if (todoText !== '') {
-            const listItem = document.createElement('li');
-            listItem.className = 'todo-item';
-            listItem.innerHTML = `${todoText} <button class="delete-btn">Delete</button>`;
-            todoList.appendChild(listItem);
-            todoInput.value = '';
-        }
-    });
+// because this file is now a module, we want to make certain things globally accessible across modules
+// gloablThis allow us to put things in the global object, regardless of run env
+globalThis.DOM = {}
+const DOM = globalThis.DOM;
 
-    todoList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('delete-btn')) {
-            event.target.parentElement.remove();
-        }
-    });
+// this event fired when DOM is parsed in memory and ready to be used
+document.addEventListener("DOMContentLoaded", () =>{
+  DOM.todoList = document.getElementById("todo-list");
+  DOM.addBtn = document.getElementById("add-btn");
+  DOM.todoInput = document.getElementById("todo-input");
+
+  DOM.addBtn.addEventListener("click", (event) =>{
+    // TODO
+  });
+  DOM.todoList.addEventListener("click", (event) =>{
+    if(event.target.classList.contains("delete-btn")){
+      // TODO
+    }
+  });
 });
